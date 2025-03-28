@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SscApi", "SscApi\SscApi.csproj", "{6015AF70-06B9-4695-91D2-049D7E2AB483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SscData", "SscData\SscData.csproj", "{AEFAAB93-1723-49D6-9FF1-11DE62F46A5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6015AF70-06B9-4695-91D2-049D7E2AB483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6015AF70-06B9-4695-91D2-049D7E2AB483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6015AF70-06B9-4695-91D2-049D7E2AB483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6015AF70-06B9-4695-91D2-049D7E2AB483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEFAAB93-1723-49D6-9FF1-11DE62F46A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEFAAB93-1723-49D6-9FF1-11DE62F46A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEFAAB93-1723-49D6-9FF1-11DE62F46A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEFAAB93-1723-49D6-9FF1-11DE62F46A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BBB69EEB-54B1-46EC-B95E-DB6A1658F25A}
+	EndGlobalSection
+EndGlobal
