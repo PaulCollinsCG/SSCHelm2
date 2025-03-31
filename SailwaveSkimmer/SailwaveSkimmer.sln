@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SailwaveSkimmer", "Sailwave
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SailwaveDataSkimmer", "SailwaveDataSkimmer\SailwaveDataSkimmer.csproj", "{1F57A867-5DC2-49AB-866A-240166C86BF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ssc.Data", "Ssc.Data\Ssc.Data.csproj", "{F732C1B0-74C7-4BA3-8C95-A0BAE9D079E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ssc.Data", "..\SscData\Ssc.Data.csproj", "{1C05135D-6D3B-46BC-96DD-AB6F52F39121}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{1F57A867-5DC2-49AB-866A-240166C86BF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F57A867-5DC2-49AB-866A-240166C86BF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F57A867-5DC2-49AB-866A-240166C86BF4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F732C1B0-74C7-4BA3-8C95-A0BAE9D079E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F732C1B0-74C7-4BA3-8C95-A0BAE9D079E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F732C1B0-74C7-4BA3-8C95-A0BAE9D079E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F732C1B0-74C7-4BA3-8C95-A0BAE9D079E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C05135D-6D3B-46BC-96DD-AB6F52F39121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C05135D-6D3B-46BC-96DD-AB6F52F39121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C05135D-6D3B-46BC-96DD-AB6F52F39121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C05135D-6D3B-46BC-96DD-AB6F52F39121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,35 @@
+.container-fluid.sailing-theme {
+    background: url('/path/to/your/sailing-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+  
+  h1 {
+    font-family: 'Georgia', serif;
+    color: #003366;
+  }
+  
+  .table {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table th {
+    background-color: #003366;
+    color: #fff;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 51, 102, 0.1);
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }

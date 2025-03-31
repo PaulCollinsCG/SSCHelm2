@@ -12,20 +12,23 @@ namespace SailwaveDataSkimmer
     public class PageSkimmer
     {
         private readonly HttpClient _httpClient;
-        public PageSkimmer()
+        private readonly string _outputFolder;
+        public PageSkimmer(string outputFolder)
         {
             _httpClient = new HttpClient();
+            _outputFolder = outputFolder;
         }
 
         public async Task SkimPagesAsync(IEnumerable<string> urls)
         {
-            AllRaceData allRaceData = new AllRaceData();
+            AllSailwaveRaceData allRaceData = new AllSailwaveRaceData();
             foreach (var url in urls)
             {
                 allRaceData.RacesData.Add(await SkimPageAsync(url));
             }
 
-            SaveRaceData(allRaceData, @"JsonData\SscRaceData.json");
+            //SaveRaceDataOneFile(allRaceData, @"JsonData\SscRaceData.json");
+            SaveRaceDataMultipleFiles(allRaceData, $"{_outputFolder}");
 
         }
 
@@ -33,9 +36,20 @@ namespace SailwaveDataSkimmer
         {
             try
             {
-                string htmlContent = await _httpClient.GetStringAsync(url);
-                //new System.IO.StreamWriter($"{description}.txt").Write(htmlContent);
-                //var htmlContent = new System.IO.StreamReader($"{description}.txt").ReadToEnd();
+                string htmlContent;
+                if (url.StartsWith("C:"))
+                {
+                    using(var sr = new System.IO.StreamReader(url))
+                    {
+                        htmlContent = sr.ReadToEnd();
+                    }
+                }
+                else
+                {
+                    htmlContent = await _httpClient.GetStringAsync(url);
+                    //new System.IO.StreamWriter($"Temp.html").Write(htmlContent);
+                    //var htmlContent = new System.IO.StreamReader($"{description}.txt").ReadToEnd();
+                }
                 var htmlDoc = new HtmlDocument();
                 htmlDoc.LoadHtml(htmlContent);
                 var body = htmlDoc.DocumentNode.ChildNodes.Where(n => n.Name == "body").FirstOrDefault();
@@ -53,6 +67,8 @@ namespace SailwaveDataSkimmer
                     GetRowColumnData(tableNode.Node, ref tableData);
                     page.Races.Add(GetRaceData(tableData));
                 }
+                //filter out races with no data
+                page.Races = page.Races.Where(r => r.CompetitorData.Count > 1).ToList();
                 return page;
             }
             catch(Exception e)
@@ -94,7 +110,7 @@ namespace SailwaveDataSkimmer
             return input;
         }
 
-        private void SaveRaceData(AllRaceData data, string filePath)
+        private void SaveRaceDataOneFile(AllSailwaveRaceData data, string filePath)
         {
             var fileInfo = new FileInfo(filePath);
             if (fileInfo.Directory != null && !fileInfo.Directory.Exists)
@@ -106,10 +122,34 @@ namespace SailwaveDataSkimmer
                 sw.WriteLine(jsonText); 
             } 
         }
-
-        public RaceData GetRaceData(Data.TableData tableData)
+        private void SaveRaceDataMultipleFiles(AllSailwaveRaceData data, string folder)
         {
-            RaceData raceData = new RaceData();
+            var fileInfo = new FileInfo(folder);
+            if (fileInfo.Directory != null && !fileInfo.Directory.Exists)
+                fileInfo.Directory.Create();
+
+            foreach(var raceData in data.RacesData)
+            {
+                string filePath = $"{folder}\\{MakeSafeFileName(raceData.Description)}.json";
+                var jsonText = JsonConvert.SerializeObject(raceData);
+                using (var sw = new StreamWriter(filePath, false))
+                {
+                    sw.WriteLine(jsonText);
+                }
+            }
+        }
+
+        private string MakeSafeFileName(string fileName)
+        {
+            // Remove invalid characters
+            string invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));
+            string invalidReStr = string.Format(@"[{0}]+", invalidChars);
+            return Regex.Replace(fileName, invalidReStr, "_");
+        }
+
+        public SailwaveRaceData GetRaceData(Data.TableData tableData)
+        {
+            SailwaveRaceData raceData = new SailwaveRaceData();
             raceData.SubTitle = tableData.Title.Replace("&nbsp;", " ");
             raceData.RaceInfo = GetRaceInfo(tableData.RaceInfo);
 
@@ -119,12 +159,14 @@ namespace SailwaveDataSkimmer
 
             for(int row = 1; row <= rowCount; row++)
             {
-                CompetitorData competitorData = new CompetitorData();
+                SailwaveCompetitorData competitorData = new SailwaveCompetitorData();
                 competitorData.Rank = tableData.GetColumnString("Rank", row);
+                competitorData.Fleet = tableData.GetColumnString("Fleet", row);
                 competitorData.Class = tableData.GetColumnString("Class", row);
                 competitorData.HelmName = tableData.GetColumnString("HelmName", row);
                 competitorData.CrewName = tableData.GetColumnString("CrewName", row);
                 competitorData.PY = tableData.GetColumnNullableInt("PY", row);
+                competitorData.SailNo = tableData.GetColumnNullableInt("SailNo", row);
                 competitorData.Total = GetDoubleOrNull(tableData.GetColumnString("Total", row));
                 competitorData.Nett = GetDoubleOrNull(tableData.GetColumnString("Nett", row));
                 for (int race = 1; race <= raceCount; race++)
@@ -139,9 +181,9 @@ namespace SailwaveDataSkimmer
             return raceData;
         }
 
-        private Round GetRound(string roundTitle, string cellText)
+        private SailwaveRound GetRound(string roundTitle, string cellText)
         {
-            Round round = new Round();
+            SailwaveRound round = new SailwaveRound();
             //Remove parenthses
             var edit = cellText.Replace("(", "").Replace(")", "");
             var split = edit.Split(' ');
@@ -232,7 +274,7 @@ namespace SailwaveDataSkimmer
 
         public void GetTableNodesRecursive(HtmlNode node, ref string title, ref string scoring, ref List<Data.TableNode> tableNodes) 
         { 
-            if(node.InnerHtml.Contains("Scoring system:"))
+            if(node.InnerHtml.Contains("Scoring system:") && !node.InnerHtml.Contains("<"))
             {
                 scoring = node.InnerHtml;
             }
@@ -253,9 +295,9 @@ namespace SailwaveDataSkimmer
             }
         }
 
-        private RaceInfo GetRaceInfo(string pageData)
+        private SailwaveRaceInfo GetRaceInfo(string pageData)
         {
-            RaceInfo raceInfo = new RaceInfo();
+            SailwaveRaceInfo raceInfo = new SailwaveRaceInfo();
             raceInfo.ScoringSystem = null;
 
             var split = pageData.Split(',');

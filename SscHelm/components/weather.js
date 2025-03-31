@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { Container, Row, Col, Image } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowDown } from 'lucide-react';
 
 const WeatherTable = () => {
@@ -107,7 +109,7 @@ const WeatherTable = () => {
         display: 'inline-flex',
         transition: 'transform 0.2s ease-in-out'
       }}>
-        <ArrowDown size={16} className="text-blue-500" />
+        <ArrowDown size={30} className="text-blue-500" />
       </div>
     );
   };
@@ -141,17 +143,17 @@ const WeatherTable = () => {
   const timeGroups = groupTimesByDate(filteredData.hourly.time);
 
   return (
-    <div>
-      <h2>Weather Forecast</h2>
-      <div>
-        <img
-          width="600px"
-          src="/ResevoirArielPhoto.jpg"
-          alt="Reservoir Aerial View"
-          className="w-full h-auto object-cover"
-        />
-      </div>
-      <div className="w-full overflow-x-auto shadow-md rounded-lg">
+    <Container>
+      <Row className="justify-content-center">
+        <Col xs={12} md={8} className="text-center">
+          <Image
+            src="/ResevoirArielPhoto.jpg"
+            alt="Reservoir Aerial View"
+            fluid
+          />
+        </Col>
+      </Row>
+        <div className="w-full overflow-x-auto shadow-md rounded-lg">
         <table className="w-full border-collapse bg-white">
           <thead>
             <tr className="bg-gray-100">
@@ -265,7 +267,7 @@ const WeatherTable = () => {
           </tbody>
         </table>
       </div>     
-    </div>
+    </Container>
   );
 };
 

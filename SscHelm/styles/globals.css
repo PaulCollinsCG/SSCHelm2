@@ -1,6 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-color: #003366; /* Navy blue */
+  --secondary-color: #66ccff; /* Light blue */
+  --accent-color: #ffcc00; /* Yellow */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,8 +21,8 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #d7eaf3, #7da1ce);
+   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,4 +42,140 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.table {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+
+.table th, .table td {
+  text-align: center !important;
+  vertical-align: middle !important;
+  padding: 5px !important; /* Reduced padding */
+}
+
+.table th {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 51, 102, 0.1) !important;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(102, 204, 255, 0.1) !important;
+}
+
+.table-striped tbody tr:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--foreground) !important;
+}
+
+.error {
+  color: var(--accent-color) !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  margin-top: 20px !important;
+  padding: 10px !important;
+  border: 1px solid var(--accent-color) !important;
+  background-color: rgba(255, 204, 0, 0.1) !important;
+}
+
+.table-responsive {
+  padding: 20px !important;
+  margin: 20px 0 !important;
+}
+
+h1 {
+  color: var(--primary-color) !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 20px !important;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  background-color: var(--secondary-color);
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.button.active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.calendar-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.calendar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.calendar-entry {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0070f3;
+  margin-right: 20px;
+}
+
+.calendar-details {
+  flex: 1;
+}
+
+.calendar-entry-title {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.calendar-entry-description {
+  margin: 0;
+  color: #666;
+}
+
+.no-entries {
+  font-size: 16px;
+  color: #999;
+}
+
+.ssclogo {
+  margin-left: 10px;
+  margin-top: 10px;
 }
