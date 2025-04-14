@@ -10,12 +10,14 @@ const RotatingContent = () => {
   return (
     <div>
       <RotatingElements> 
-        <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/Spring%20Sunday%202025'}  showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Series'}  showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Pursuit%20Series'}  showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/2024%20-%202025%20Novice%20Series'}  showCrew={false} showClass={false}/>
-        <Calendar apiUrl={'https://localhost:7052/Calendar'}/>
+        {/* https://ssc-helm.co.uk/ */}
+        {/* https://ssc-helm.co.uk/ */}
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/>
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/Spring%20Sunday%202025'}  showCrew={true} showClass={true}/>
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Series'}  showCrew={true} showClass={true}/>
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Pursuit%20Series'}  showCrew={true} showClass={true}/>
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2024%20-%202025%20Novice%20Series'}  showCrew={false} showClass={false}/>
+        <Calendar apiUrl={'https://ssc-helm.co.uk/Calendar'}/>
         <WeatherTable />
       </RotatingElements>
     </div>
