@@ -8,7 +8,10 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // Replace with your React app's URL
+        policy.WithOrigins(
+            "http://localhost:3000",
+            "https://sschelm.com"
+            )
               .AllowAnyMethod()
               .AllowAnyHeader();
     });
@@ -30,7 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Apply the CORS policy
-app.UseCors("AllowSpecificOrigins");
+app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
 
