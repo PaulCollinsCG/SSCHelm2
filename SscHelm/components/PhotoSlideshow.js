@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
-const photos = [
-  '/slideshow/Image01.jpg',
-  '/slideshow/Image02.jpg',
-  '/slideshow/Image03.jpg'
-];
+const getRandomImagePath = () => {
+  const imageNumber = Math.floor(Math.random() * 217) + 1;
+  return `/slideshow/Image (${imageNumber}).jpg`;
+};
 
 const PhotoSlideshow = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState(getRandomImagePath());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === photos.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 3000); // Change photo every 3 seconds
+      setCurrentImage(getRandomImagePath());
+    }, 5000); // change image every 5 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -22,21 +19,11 @@ const PhotoSlideshow = () => {
   return (
     <div className="slideshow-container">
       <img
-        src={photos[currentIndex]}
-        alt={`Slide ${currentIndex + 1}`}
+        src={currentImage}
+        alt="Slideshow"
         className="slideshow-image"
+        style={{ maxWidth: '100%', maxHeight: '100%' }}
       />
-      <div className="slideshow-buttons">
-        {photos.map((_, index) => (
-          <button
-            key={index}
-            className={`slideshow-button ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
     </div>
   );
 };

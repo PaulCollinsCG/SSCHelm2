@@ -12,17 +12,31 @@ const RotatingContent = () => {
     <div>
       <RotatingElements> 
         {/* https://ssc-helm.co.uk/ */}
+        {/* https://ssc-helm.co.uk/ */}
         <SlideShow />
-        {/* <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/Spring%20Sunday%202025'}  showCrew={true} showClass={true}/>
+        {/* <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/> */}
+        {/* <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/Spring%20Sunday%202025'}  showCrew={true} showClass={true}/>
         <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Series'}  showCrew={true} showClass={true}/>
         <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Personal%20Handicap%20Pursuit%20Series'}  showCrew={true} showClass={true}/>
-        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2024%20-%202025%20Novice%20Series'}  showCrew={false} showClass={false}/>
-        <Calendar apiUrl={'https://ssc-helm.co.uk/Calendar'}/> */}
+        <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2024%20-%202025%20Novice%20Series'}  showCrew={false} showClass={false}/> */}
+        {/* <Calendar apiUrl={'https://ssc-helm.co.uk/Calendar'}/> */}
         <WeatherTable />
-      </RotatingElements>
+        {/* <RaceTableSpringSaturday apiUrl={'https://localhost:7052/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/> */}
+        {/* <RaceTableSpringSaturday apiUrl={'https://ssc-helm.co.uk/RaceData/RaceTop/2025%20Spring%20Saturday'} showCrew={true} showClass={true}/> */}
+        </RotatingElements>
     </div>
   );
+};
+
+const getDuration = (index) => {
+  switch (index) {
+    case 0: // Slide Show
+      return 25000; // 25 seconds
+    case 1: // Weather
+      return 5000; // 5 seconds
+    default:
+      return 15000; // fallback duration (e.g., 15s)
+  }
 };
 
 const RotatingElements = ({ children }) => {
@@ -30,8 +44,6 @@ const RotatingElements = ({ children }) => {
 
   const getTitle = (index) => {
     switch (index) {
-      // case 0:
-      //   return "Spring Saturday 2025";
       // case 1:
       //   return "Spring Sunday 2025";
       // case 2:
@@ -46,23 +58,25 @@ const RotatingElements = ({ children }) => {
         return "Slide Show";
       case 1:
         return "Weather";
+      case 2:
+        return "Spring Saturday 2025";
       default:
         return index;
     }
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timeout = setTimeout(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === React.Children.count(children) - 1 ? 0 : prevIndex + 1
       );
-    }, 60000);
+    }, getDuration(currentIndex));
 
-    return () => clearInterval(interval);
-  }, [children]);
+    return () => clearTimeout(timeout);
+  }, [currentIndex, children]);
 
   return (
-    <div>
+    <div className="slideshow-container">
       <div className="flex-container">
         <Image
             className="ssclogo"
@@ -71,7 +85,7 @@ const RotatingElements = ({ children }) => {
             alt="Shustoke Logo"
             fluid
           />
-        <h1>{getTitle(currentIndex)}</h1>
+        {/* <div class="rotatingTitle">{getTitle(currentIndex)}</div> */}
         <nav>
           {React.Children.map(children, (child, index) => (
             <button

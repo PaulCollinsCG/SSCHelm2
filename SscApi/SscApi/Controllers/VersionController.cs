@@ -9,7 +9,7 @@ namespace SscApi.Controllers
         [HttpGet(Name = "GetVersion")]
         public string GetVersion()
         {
-            return "1.0";
+            return "1.2";
         }
 
 

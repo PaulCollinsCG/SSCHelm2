@@ -1,9 +1,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-color: #003366; /* Navy blue */
-  --secondary-color: #66ccff; /* Light blue */
-  --accent-color: #ffcc00; /* Yellow */
+  --primary-color: #05547e; /* Navy blue */
+  --secondary-color: #5e99ff; /* Light blue */
+  --accent-color: #ff0000; /* Yellow */
   --height: 100%; 
 }
 
@@ -96,13 +96,27 @@ h1 {
   margin-bottom: 20px !important;
 }
 
+.rotatingTitle{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .flex-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Horizontally center all children */
+  gap: 10px;            /* Add some spacing between items */
+  padding-top: 10px;    /* Optional: some space from top */
+  background-color: rgba(179, 213, 245, 0.499);
+  width: 150px;
+  height: 100%; 
 }
 
 .button {
+  display: flex;
+  flex-direction: column; /* stack buttons vertically */
   padding: 10px 20px;
   margin: 5px;
   border: none;
@@ -178,8 +192,18 @@ h1 {
 }
 
 .ssclogo {
-  margin-left: 10px;
-  margin-top: 10px;
+  display: block;
+  margin:  auto;
+  margin-bottom: 20px; }
+
+.rotating-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .slideshow-container {
@@ -190,7 +214,7 @@ h1 {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #040524; /* Optional: for contrast */
+  background-color: #c9f0f6; /* Optional: for contrast */
 }
 
 .slideshow-image {

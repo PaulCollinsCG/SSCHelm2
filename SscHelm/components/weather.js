@@ -14,7 +14,7 @@ const WeatherTable = () => {
     const fetchWeatherData = async () => {
       try {
         const response = await fetch(
-          'https://api.open-meteo.com/v1/forecast?latitude=52.51872&longitude=-1.665282&hourly=temperature_2m,wind_speed_10m,wind_gusts_10m,wind_direction_10m&forecast_days=2'
+          'https://api.open-meteo.com/v1/forecast?latitude=52.51872&longitude=-1.665282&hourly=temperature_2m,wind_speed_10m,wind_gusts_10m,wind_direction_10m&forecast_days=1'
         );
         
         if (!response.ok) {
@@ -55,7 +55,7 @@ const WeatherTable = () => {
     
     const filteredIndices = data.hourly.time.reduce((acc, time, index) => {
       const hour = new Date(time).getHours();
-      if (hour >= 9 && hour <= 18) {
+      if (hour >= 10 && hour <= 20) {
         acc.push(index);
       }
       return acc;
@@ -145,7 +145,7 @@ const WeatherTable = () => {
   return (
     <Container>
       <Row className="justify-content-center">
-        <Col xs={12} md={8} className="text-center">
+        <Col xs={12} md={12} className="text-center">
           <Image
             src="/ResevoirArielPhoto.jpg"
             alt="Reservoir Aerial View"
@@ -209,7 +209,7 @@ const WeatherTable = () => {
             </tr>
             <tr>
               <td className="py-1.5 px-3 text-left font-medium text-gray-600 border border-gray-300 sticky left-0 bg-white">
-                Wind Speed Gusts (km/h)
+                Wind Speed Gusts (mph)
               </td>
               {filteredData.hourly.wind_gusts_10m.map((speed, index) => {
                 const isNewDay = index > 0 && 
@@ -221,14 +221,14 @@ const WeatherTable = () => {
                     className={`py-1.5 px-2 text-center text-gray-800 border border-gray-300
                       ${isNewDay ? 'border-l-4 border-l-black' : ''}`}
                   >
-                    {speed.toFixed(1)}
+                    {(speed * 0.621371) .toFixed(0)}
                   </td>
                 );
               })}
             </tr>
             <tr>
               <td className="py-1.5 px-3 text-left font-medium text-gray-600 border border-gray-300 sticky left-0 bg-white">
-                Wind Speed (km/h)
+                Wind Speed (mph)
               </td>
               {filteredData.hourly.wind_speed_10m.map((speed, index) => {
                 const isNewDay = index > 0 && 
@@ -240,7 +240,7 @@ const WeatherTable = () => {
                     className={`py-1.5 px-2 text-center text-gray-800 border border-gray-300
                       ${isNewDay ? 'border-l-4 border-l-black' : ''}`}
                   >
-                    {speed.toFixed(1)}
+                    {(speed * 0.621371).toFixed(0)}
                   </td>
                 );
               })}
@@ -259,7 +259,7 @@ const WeatherTable = () => {
                     className={`py-1.5 px-2 text-center text-gray-800 border border-gray-300
                       ${isNewDay ? 'border-l-4 border-l-black' : ''}`}
                   >
-                    {temp.toFixed(1)}
+                    {temp.toFixed(0)}
                   </td>
                 );
               })}

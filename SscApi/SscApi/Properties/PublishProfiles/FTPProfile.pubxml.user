@@ -7,7 +7,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA/9lzZ8Xty0KShTMgCKNwnQAAAAACAAAAAAAQZgAAAAEAACAAAACKqlTnS8kaNCyi3IOct2j5Q+jyiItDvKrdp3yfsjPldAAAAAAOgAAAAAIAACAAAABgAyHR9eIsNDQy4MCrSJVxKMJ3RsZ8wlcU7GWCu7k79SAAAAC4ML3EOHbWpsGaDbJMlug6aX9xUNsZ+11amegRr91jtUAAAABZTw7p1iowXmbTMe6+7/m+f3fXq7Tr+NRxll3gSwPT1r17MY4MTQHVNtlprl2GkUNV5tkgNzioE6Adw8eQZurE</EncryptedPassword>
     <_PublishTargetUrl>ftp://access1045993554.webspace-data.io/api</_PublishTargetUrl>
-    <History>True|2025-04-16T19:20:19.2947642Z||;True|2025-04-16T20:13:44.0796787+01:00||;False|2025-04-16T20:07:51.3857503+01:00||;False|2025-04-16T20:07:14.4135524+01:00||;True|2025-03-31T20:37:26.7548020+01:00||;</History>
+    <History>True|2025-04-18T15:18:52.1309250Z||;False|2025-04-18T16:15:47.6182104+01:00||;True|2025-04-18T11:28:06.5720799+01:00||;False|2025-04-18T11:26:46.3623402+01:00||;True|2025-04-18T11:23:19.6512680+01:00||;True|2025-04-18T08:40:36.5033562+01:00||;True|2025-04-16T20:20:19.2947642+01:00||;True|2025-04-16T20:13:44.0796787+01:00||;False|2025-04-16T20:07:51.3857503+01:00||;False|2025-04-16T20:07:14.4135524+01:00||;True|2025-03-31T20:37:26.7548020+01:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -24,25 +24,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/10/2024 17:43:48</publishTime>
     </File>
     <File Include="JsonData/Competitors/Competitors.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/Other/ClubCalendar.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/RaceData/2024 - 2025 Novice Series.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/RaceData/2025 Spring Personal Handicap Pursuit Series.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/RaceData/2025 Spring Personal Handicap Series.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/RaceData/2025 Spring Saturday.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="JsonData/RaceData/Spring Sunday 2025.json">
-      <publishTime>03/31/2025 19:57:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.Bcl.AsyncInterfaces.dll">
       <publishTime>04/14/2020 23:39:12</publishTime>
@@ -147,7 +147,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/11/2023 19:56:18</publishTime>
     </File>
     <File Include="runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll">
-      <publishTime>08/27/2024 19:23:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll">
       <publishTime>10/23/2021 00:40:18</publishTime>
@@ -171,19 +171,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/31/2025 20:36:01</publishTime>
     </File>
     <File Include="SscApi.deps.json">
-      <publishTime>04/16/2025 20:19:07</publishTime>
+      <publishTime>04/18/2025 16:17:03</publishTime>
     </File>
     <File Include="SscApi.dll">
-      <publishTime>04/16/2025 20:19:06</publishTime>
+      <publishTime>04/18/2025 16:17:03</publishTime>
     </File>
     <File Include="SscApi.exe">
-      <publishTime>04/16/2025 20:19:06</publishTime>
+      <publishTime>04/18/2025 16:17:03</publishTime>
     </File>
     <File Include="SscApi.pdb">
-      <publishTime>04/16/2025 20:19:06</publishTime>
+      <publishTime>04/18/2025 16:17:03</publishTime>
     </File>
     <File Include="SscApi.runtimeconfig.json">
-      <publishTime>03/31/2025 20:36:07</publishTime>
+      <publishTime>04/18/2025 16:14:46</publishTime>
     </File>
     <File Include="SscApi.staticwebassets.endpoints.json">
       <publishTime>03/31/2025 20:36:09</publishTime>
@@ -246,7 +246,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/23/2021 00:49:44</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>04/16/2025 20:19:07</publishTime>
+      <publishTime>04/18/2025 16:17:04</publishTime>
     </File>
   </ItemGroup>
 </Project>
